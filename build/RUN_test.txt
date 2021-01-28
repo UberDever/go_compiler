@@ -1,0 +1,18 @@
+Imported pkg fmt
+Imported pkg math
+
+Var gamma with type int on level 1
+Var j with type int on level 1
+Var k5 with type int on level 11
+Var k1 with type int on level 3
+Var k2 with type int on level 5
+Var b with type int on level 1
+Var k3 with type int on level 7
+Var c with type int on level 4
+Var a with type int on level 1
+Var beta with type int on level 1
+Var alpha with type int on level 1
+Var i with type int on level 2
+Var alpha with type int on level 3
+Var t with type int on level 1
+Var k4 with type int on level 9

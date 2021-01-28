@@ -1,0 +1,47 @@
+[
+{
+  "directory": "/home/uberdever/dev/4 sem/go_compiler/build",
+  "command": "/usr/bin/g++-7    -g   -std=gnu++11 -o CMakeFiles/go_compiler.dir/main.cpp.o -c \"/home/uberdever/dev/4 sem/go_compiler/main.cpp\"",
+  "file": "/home/uberdever/dev/4 sem/go_compiler/main.cpp"
+},
+{
+  "directory": "/home/uberdever/dev/4 sem/go_compiler/build",
+  "command": "/usr/bin/g++-7    -g   -std=gnu++11 -o CMakeFiles/go_compiler.dir/src/Compiler.cpp.o -c \"/home/uberdever/dev/4 sem/go_compiler/src/Compiler.cpp\"",
+  "file": "/home/uberdever/dev/4 sem/go_compiler/src/Compiler.cpp"
+},
+{
+  "directory": "/home/uberdever/dev/4 sem/go_compiler/build",
+  "command": "/usr/bin/g++-7    -g   -std=gnu++11 -o CMakeFiles/go_compiler.dir/src/Token.cpp.o -c \"/home/uberdever/dev/4 sem/go_compiler/src/Token.cpp\"",
+  "file": "/home/uberdever/dev/4 sem/go_compiler/src/Token.cpp"
+},
+{
+  "directory": "/home/uberdever/dev/4 sem/go_compiler/build",
+  "command": "/usr/bin/g++-7    -g   -std=gnu++11 -o CMakeFiles/go_compiler.dir/src/Lexan.cpp.o -c \"/home/uberdever/dev/4 sem/go_compiler/src/Lexan.cpp\"",
+  "file": "/home/uberdever/dev/4 sem/go_compiler/src/Lexan.cpp"
+},
+{
+  "directory": "/home/uberdever/dev/4 sem/go_compiler/build",
+  "command": "/usr/bin/g++-7    -g   -std=gnu++11 -o CMakeFiles/go_compiler.dir/src/Parser.cpp.o -c \"/home/uberdever/dev/4 sem/go_compiler/src/Parser.cpp\"",
+  "file": "/home/uberdever/dev/4 sem/go_compiler/src/Parser.cpp"
+},
+{
+  "directory": "/home/uberdever/dev/4 sem/go_compiler/build",
+  "command": "/usr/bin/g++-7    -g   -std=gnu++11 -o CMakeFiles/go_compiler.dir/src/utility.cpp.o -c \"/home/uberdever/dev/4 sem/go_compiler/src/utility.cpp\"",
+  "file": "/home/uberdever/dev/4 sem/go_compiler/src/utility.cpp"
+},
+{
+  "directory": "/home/uberdever/dev/4 sem/go_compiler/build",
+  "command": "/usr/bin/g++-7    -g   -std=gnu++11 -o CMakeFiles/go_compiler.dir/src/AST.cpp.o -c \"/home/uberdever/dev/4 sem/go_compiler/src/AST.cpp\"",
+  "file": "/home/uberdever/dev/4 sem/go_compiler/src/AST.cpp"
+},
+{
+  "directory": "/home/uberdever/dev/4 sem/go_compiler/build",
+  "command": "/usr/bin/g++-7    -g   -std=gnu++11 -o CMakeFiles/go_compiler.dir/src/Runtime.cpp.o -c \"/home/uberdever/dev/4 sem/go_compiler/src/Runtime.cpp\"",
+  "file": "/home/uberdever/dev/4 sem/go_compiler/src/Runtime.cpp"
+},
+{
+  "directory": "/home/uberdever/dev/4 sem/go_compiler/build",
+  "command": "/usr/bin/g++-7    -g   -std=gnu++11 -o CMakeFiles/go_compiler.dir/src/Translator.cpp.o -c \"/home/uberdever/dev/4 sem/go_compiler/src/Translator.cpp\"",
+  "file": "/home/uberdever/dev/4 sem/go_compiler/src/Translator.cpp"
+}
+]

@@ -1,0 +1,3 @@
+/home/uberdever/dev/4 sem/go_compiler/build/CMakeFiles/rebuild_cache.dir
+/home/uberdever/dev/4 sem/go_compiler/build/CMakeFiles/edit_cache.dir
+/home/uberdever/dev/4 sem/go_compiler/build/CMakeFiles/go_compiler.dir
