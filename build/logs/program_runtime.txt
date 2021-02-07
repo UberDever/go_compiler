@@ -1,0 +1,5 @@
+Imported pkg fmt
+Imported pkg math
+
+Var hyp with type int on level 2
+Var i with type int on level 2

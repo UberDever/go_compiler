@@ -181,21 +181,21 @@ __start:
    push 0
    pop eax
    mov i_int_2[ebp], eax
-LOOPSTART_82716:
+LOOPSTART_26168:
    push i_int_2[ebp]
    pop ecx
    push a_int_1[ebp]
    pop edx
    cmp ecx, edx
-   jge CMPNE_2487
+   jge CMPNE_19763
    push 1
-   jmp CMPEND_2487
-CMPNE_2487:
+   jmp CMPEND_19763
+CMPNE_19763:
    push 0
-CMPEND_2487:
+CMPEND_19763:
    pop eax
    cmp eax, 0
-   je LOOPEND_82716
+   je LOOPEND_26168
    push 10
    pop eax
    mov alpha_int_1[ebp], eax
@@ -228,15 +228,15 @@ CMPEND_2487:
    push 5
    pop edx
    cmp ecx, edx
-   jne CMPNE_8408
+   jne CMPNE_27482
    push 1
-   jmp CMPEND_8408
-CMPNE_8408:
+   jmp CMPEND_27482
+CMPNE_27482:
    push 0
-CMPEND_8408:
+CMPEND_27482:
    pop eax
    cmp eax, 0
-   je IFELSE_221700
+   je IFELSE_434450
    mov ecx, 0
    push offset LIT2791304878
    push offset print_3
@@ -258,8 +258,8 @@ CMPEND_8408:
    push 8
    pop eax
    mov b_int_1[ebp], eax
-   jmp IFEND_22170
-IFELSE_221700:
+   jmp IFEND_43445
+IFELSE_434450:
    push 3
    pop eax
    mov c_int_4[ebp], eax
@@ -268,37 +268,37 @@ IFELSE_221700:
    push 5
    pop edx
    cmp ecx, edx
-   jge CMPNE_73736
+   jge CMPNE_3217
    push 1
-   jmp CMPEND_73736
-CMPNE_73736:
+   jmp CMPEND_3217
+CMPNE_3217:
    push 0
-CMPEND_73736:
+CMPEND_3217:
    pop eax
    cmp eax, 0
-   je IFELSE_221701
+   je IFELSE_434451
    mov ecx, 0
    push offset LIT2971646047
    push offset print_3
    call print
    push offset print_nl
    call print
-   jmp IFEND_22170
-IFELSE_221701:
+   jmp IFEND_43445
+IFELSE_434451:
    push gamma_int_1[ebp]
    pop ecx
    push 0
    pop edx
    cmp ecx, edx
-   jge CMPNE_77514
+   jge CMPNE_46505
    push 1
-   jmp CMPEND_77514
-CMPNE_77514:
+   jmp CMPEND_46505
+CMPNE_46505:
    push 0
-CMPEND_77514:
+CMPEND_46505:
    pop eax
    cmp eax, 0
-   je IFELSE_221702
+   je IFELSE_434452
    mov ecx, 0
    push offset LIT4057494348
    push offset print_3
@@ -317,52 +317,52 @@ CMPEND_77514:
    call print
    push offset print_nl
    call print
-   jmp LOOPEND_82716
-   jmp IFEND_22170
-IFELSE_221702:
-IFEND_22170:
-LOOPINC_82716:
+   jmp LOOPEND_26168
+   jmp IFEND_43445
+IFELSE_434452:
+IFEND_43445:
+LOOPINC_26168:
    push i_int_2[ebp]
    pop eax
    inc eax
    mov i_int_2[ebp], eax
-   jmp LOOPSTART_82716
-LOOPEND_82716:
-LOOPSTART_31328:
+   jmp LOOPSTART_26168
+LOOPEND_26168:
+LOOPSTART_61308:
    push 0
    pop eax
    mov k1_int_3[ebp], eax
-   jmp LOOPEND_31328
-LOOPSTART_52425:
+   jmp LOOPEND_61308
+LOOPSTART_99955:
    push 0
    pop eax
    mov k2_int_5[ebp], eax
-   jmp LOOPEND_52425
-LOOPSTART_682:
+   jmp LOOPEND_99955
+LOOPSTART_82496:
    push 0
    pop eax
    mov k3_int_7[ebp], eax
-   jmp LOOPEND_682
-LOOPSTART_30622:
+   jmp LOOPEND_82496
+LOOPSTART_63414:
    push 0
    pop eax
    mov k4_int_9[ebp], eax
-   jmp LOOPEND_30622
-LOOPSTART_24918:
+   jmp LOOPEND_63414
+LOOPSTART_83070:
    push 0
    pop eax
    mov k5_int_11[ebp], eax
-   jmp LOOPEND_24918
-   jmp LOOPSTART_24918
-LOOPEND_24918:
-   jmp LOOPSTART_30622
-LOOPEND_30622:
-   jmp LOOPSTART_682
-LOOPEND_682:
-   jmp LOOPSTART_52425
-LOOPEND_52425:
-   jmp LOOPSTART_31328
-LOOPEND_31328:
+   jmp LOOPEND_83070
+   jmp LOOPSTART_83070
+LOOPEND_83070:
+   jmp LOOPSTART_63414
+LOOPEND_63414:
+   jmp LOOPSTART_82496
+LOOPEND_82496:
+   jmp LOOPSTART_99955
+LOOPEND_99955:
+   jmp LOOPSTART_61308
+LOOPEND_61308:
 
    leave
 

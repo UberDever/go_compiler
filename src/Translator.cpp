@@ -6,20 +6,22 @@
 
 #include <utility>
 
-RuntimeVars* Translator::run = new RuntimeVars;
+RuntimeVars *Translator::run = new RuntimeVars;
 
-static auto asmVar = [](Node* node, RuntimeVars* run) {return node->lex + "_" + run->getVars()->search(node->lex.c_str())->type
-                                                       + "_" + to_string(run->getVars()->search(node->lex.c_str())->level) /*+ "_" + to_string(run->getVars()->search(node->lex.c_str())->id)*/+ string("[ebp]");};
+static auto asmVar = [](Node *node, RuntimeVars *run) { return node->lex + "_" + run->getVars()->search(node->lex.c_str())->type + "_" + to_string(run->getVars()->search(node->lex.c_str())->level) /*+ "_" + to_string(run->getVars()->search(node->lex.c_str())->id)*/ + string("[ebp]"); };
 
-Translator::Translator(AST * _ast, string _path) {
+Translator::Translator(AST *_ast, string _path)
+{
     ast = _ast;
     path = std::move(_path);
     out.open(path + ".asm");
-    if (!out.is_open()) throw logic_error("Cannot open " + path + ".asm " + "for writing");
+    if (!out.is_open())
+        throw logic_error("Cannot open " + path + ".asm " + "for writing");
     asmCur = &asmData;
 }
 
-void Translator::semAn() {
+void Translator::semAn()
+{
     std::cout << std::endl;
     std::cout << "BEGIN SEMANTIC ANALYSIS" << std::endl;
     //ast->print();
@@ -36,9 +38,9 @@ void Translator::semAn() {
     std::cout << "FILE ANALYSED" << std::endl;
 }
 
-void Translator::appendVars(Node* node, Info& info) {
-    auto static calcType = [&](Node* node)
-    {
+void Translator::appendVars(Node *node, Info &info)
+{
+    auto static calcType = [&](Node *node) {
         if (node->lex == "true" || node->lex == "false")
             return "bool";
         for (char i : node->lex)
@@ -50,7 +52,7 @@ void Translator::appendVars(Node* node, Info& info) {
     };
     if (node->lex == "var")
     {
-        Node* var_desc = node->l;
+        Node *var_desc = node->l;
         if (var_desc->r)
             info.curType = var_desc->r->lex;
         else
@@ -76,8 +78,10 @@ void Translator::appendVars(Node* node, Info& info) {
     }
 }
 
-void Translator::addVar(Node* node, Info& info) {
-    if (!node) return;
+void Translator::addVar(Node *node, Info &info)
+{
+    if (!node)
+        return;
     addVar(node->l, info);
     if (!node->l && !node->r)
     {
@@ -88,14 +92,17 @@ void Translator::addVar(Node* node, Info& info) {
     addVar(node->r, info);
 }
 
-int Translator::countVars(Node *node, Info &info) {
+int Translator::countVars(Node *node, Info &info)
+{
     int count = 0;
     countVar(node, info, count);
     return count;
 }
 
-void Translator::countVar(Node *node, Info &info, int &count) {
-    if (!node) return;
+void Translator::countVar(Node *node, Info &info, int &count)
+{
+    if (!node)
+        return;
     countVar(node->l, info, count);
     if (!node->l && !node->r)
     {
@@ -104,14 +111,17 @@ void Translator::countVar(Node *node, Info &info, int &count) {
     countVar(node->r, info, count);
 }
 
-int Translator::countExprs(Node *node, Info &info) {
+int Translator::countExprs(Node *node, Info &info)
+{
     int count = 0;
     countExpr(node, info, count);
     return count;
 }
 
-void Translator::countExpr(Node *node, Info &info, int &count) {
-    if (!node) return;
+void Translator::countExpr(Node *node, Info &info, int &count)
+{
+    if (!node)
+        return;
     if (node->lex == "()")
         return;
     if (node->lex == "expr_list")
@@ -122,7 +132,8 @@ void Translator::countExpr(Node *node, Info &info, int &count) {
     countExpr(node->r, info, count);
 }
 
-void Translator::checkVars(Node *node, Info &info) {
+void Translator::checkVars(Node *node, Info &info)
+{
     if (node->type == TOKEN_TYPE::IDENTIFIER)
     {
         if (!node->l)
@@ -132,8 +143,10 @@ void Translator::checkVars(Node *node, Info &info) {
     }
 }
 
-void Translator::checkVar(Node *node, Info &info) {
-    if (!node) return;
+void Translator::checkVar(Node *node, Info &info)
+{
+    if (!node)
+        return;
     checkVar(node->l, info);
     if (!node->l && !node->r)
     {
@@ -143,25 +156,30 @@ void Translator::checkVar(Node *node, Info &info) {
     checkVar(node->r, info);
 }
 
-void Translator::opValid(Node * node, Info & info) {
+void Translator::opValid(Node *node, Info &info)
+{
     if (node->lex == "for")
     {
-
     }
     if (utility::isBinOp(node->lex))
     {
-        if (!(node->l || node->r)) throw logic_error("Operator " + node->lex + " has 0 operand, expected 2");
+        if (!(node->l || node->r))
+            throw logic_error("Operator " + node->lex + " has 0 operand, expected 2");
         if (node->lex == "-")
             return;
-        if (!node->l || !node->r) throw logic_error("Operator " + node->lex + " has 1 operand, expected 2");
+        if (!node->l || !node->r)
+            throw logic_error("Operator " + node->lex + " has 1 operand, expected 2");
     }
 }
 
-void Translator::srcHead(Node *node, Info &info) {
+void Translator::srcHead(Node *node, Info &info)
+{
     if (node->lex == "head")
     {
-        if (!node->l) throw logic_error("Package name required");
-        if (node->l->lex != "main") throw logic_error("Package must be named main");
+        if (!node->l)
+            throw logic_error("Package name required");
+        if (node->l->lex != "main")
+            throw logic_error("Package must be named main");
         if (node->r)
             appendImports(node->r, info);
     }
@@ -173,9 +191,10 @@ void Translator::srcHead(Node *node, Info &info) {
     }
 }
 
-
-void Translator::appendImports(Node *node, Info &info) {
-    if (!node) return;
+void Translator::appendImports(Node *node, Info &info)
+{
+    if (!node)
+        return;
     appendImports(node->l, info);
     if (node->lex != "import")
     {
@@ -184,21 +203,22 @@ void Translator::appendImports(Node *node, Info &info) {
     appendImports(node->r, info);
 }
 
-
-void Translator::checkImports(Node *node, Info &info) {
+void Translator::checkImports(Node *node, Info &info)
+{
     if (node->lex == "()" && node->type == TOKEN_TYPE::KEYWORD)
     {
         if (node->l)
         {
-            if (!run->searchPackage(node->l->lex)) throw logic_error("Package " + node->l->lex +" must be imported first");
+            if (!run->searchPackage(node->l->lex))
+                throw logic_error("Package " + node->l->lex + " must be imported first");
         }
     }
 }
 
-
 /**********************************************************************************************************************************************/
 
-void Translator::generate() {
+void Translator::generate()
+{
     using namespace utility;
     std::cout << "\nBEGIN CODE GENERATION" << std::endl;
 
@@ -215,7 +235,8 @@ void Translator::generate() {
     out << textStart << "\n";
     out << asmPreMain << "\n";
     out << labelStart << "\n";
-    out << procProlog << run->varCnt() * 4 + 4 << ", 0" << "\n";
+    out << procProlog << run->varCnt() * 4 + 4 << ", 0"
+        << "\n";
     out << asmMain << "\n";
     out << procEpilogue << "\n";
     out << funcRet << "\n";
@@ -227,31 +248,33 @@ void Translator::generate() {
     std::cout << "CODE GENERATED" << std::endl;
 }
 
-void Translator::stringLits() {
+void Translator::stringLits()
+{
     setPtr(DATA);
-    auto* lits = run->getLits();
+    auto *lits = run->getLits();
     for (int i = 0; i < utility::HASH_TABLE_LITS; i++)
     {
         if (!lits->table[i].isEmpty)
             raw(string(utility::tab) +
-                                   "LIT" +
-            to_string(utility::hash(lits->table[i].data->c_str(), lits->table[i].data->length())) +
-                                " db \"" +
-                    *lits->table[i].data +
-                                    "\", 0\n"
-            );
+                "LIT" +
+                to_string(utility::hash(lits->table[i].data->c_str(), lits->table[i].data->length())) +
+                " db \"" +
+                *lits->table[i].data +
+                "\", 0\n");
     }
     setPtr(MAIN);
 }
 
-void Translator::sqrtOp() {
+void Translator::sqrtOp()
+{
     setPtr(DATA);
     raw(string(utility::tab) + "sqrtOp dd 0\n");
     setPtr(MAIN);
 }
 
-void Translator::localVars() {
-    utility::hashT<var>* vars = run->getVars();
+void Translator::localVars()
+{
+    utility::hashT<var> *vars = run->getVars();
     for (int i = 0; i < utility::HASH_TABLE_VARS; i++)
     {
         if (!vars->table[i].isEmpty)
@@ -272,7 +295,8 @@ void Translator::localVars() {
     }
 }
 
-void Translator::printProc() {
+void Translator::printProc()
+{
     setPtr(DATA);
     raw(string(utility::tab) + "print_0 db \"%d\", 0\n");
     raw(string(utility::tab) + "print_1 db \"%s\", 0\n");
@@ -293,12 +317,15 @@ void Translator::printProc() {
     setPtr(MAIN);
 }
 
-void Translator::asmBlock() {
+void Translator::asmBlock()
+{
     _asmBlock(ast->head());
 }
 
-void Translator::_asmBlock(Node *node) {
-    if (!node) return;
+void Translator::_asmBlock(Node *node)
+{
+    if (!node)
+        return;
 
     if (node->lex == "var" && node->type == TOKEN_TYPE::KEYWORD)
     {
@@ -338,10 +365,17 @@ void Translator::_asmBlock(Node *node) {
     {
         if (node->l->lex == "fmt")
         {
-            Node* printFunc =  node->l;
-            if (printFunc->l) {
-                if (node->l->l->lex == "Print") { printType = INT; }
-                else if (node->l->l->lex == "Println") { printType = INT_NL; }
+            Node *printFunc = node->l;
+            if (printFunc->l)
+            {
+                if (node->l->l->lex == "Print")
+                {
+                    printType = INT;
+                }
+                else if (node->l->l->lex == "Println")
+                {
+                    printType = INT_NL;
+                }
             }
             mov(utility::ecx, "0");
             asmPrint(node->r);
@@ -367,8 +401,8 @@ void Translator::_asmBlock(Node *node) {
         {
             if (node->l->lex == "for_clause")
             {
-                Node* border = node->l->l;
-                Node* cond = node->l->r;
+                Node *border = node->l->l;
+                Node *cond = node->l->r;
 
                 _asmBlock(border->l);
                 label(start);
@@ -384,7 +418,8 @@ void Translator::_asmBlock(Node *node) {
                 _asmBlock(border->r);
                 jmp(start);
                 label(end);
-            } else
+            }
+            else
             {
                 label(start);
                 asmExpr(node->l);
@@ -395,7 +430,8 @@ void Translator::_asmBlock(Node *node) {
                 jmp(start);
                 label(end);
             }
-        } else
+        }
+        else
         {
             label(start);
             _asmBlock(node->r);
@@ -436,14 +472,16 @@ void Translator::_asmBlock(Node *node) {
     _asmBlock(node->r);
 }
 
-
-void Translator::asmVarDecl(Node *varList, Node* expList) {
-    Node* varL = varList;
+void Translator::asmVarDecl(Node *varList, Node *expList)
+{
+    Node *varL = varList;
     _asmVarDecl(varL, expList);
 }
 
-void Translator::_asmVarDecl(Node *&var, Node *node) {
-    if (!node) return;
+void Translator::_asmVarDecl(Node *&var, Node *node)
+{
+    if (!node)
+        return;
     asmExpr(node->l);
     pop(utility::eax);
     mov(asmVar(var->l, run), utility::eax);
@@ -451,28 +489,32 @@ void Translator::_asmVarDecl(Node *&var, Node *node) {
     _asmVarDecl(var, node->r);
 }
 
-void Translator::asmExpr(Node *node) {
-    if (!node) return;
+void Translator::asmExpr(Node *node)
+{
+    if (!node)
+        return;
 
     if (node->type == TOKEN_TYPE::LITERAL)
     {
-        push("offset ""LIT" + to_string(utility::hash(node->lex.c_str(), node->lex.length())));
+        push("offset "
+             "LIT" +
+             to_string(utility::hash(node->lex.c_str(), node->lex.length())));
         if (printType == INT || printType == INT_NL)
-            printType = static_cast<PRINT>((int) printType + 1);
+            printType = static_cast<PRINT>((int)printType + 1);
         return;
     }
     if (!node->isDecl && node->type == TOKEN_TYPE::IDENTIFIER)
     {
         push(asmVar(node, run));
         if (printType == STR || printType == STR_NL)
-            printType = static_cast<PRINT>((int) printType - 1);
+            printType = static_cast<PRINT>((int)printType - 1);
         return;
     }
     if (node->type == TOKEN_TYPE::NUMBER)
     {
         push(node->lex);
         if (printType == STR || printType == STR_NL)
-            printType = static_cast<PRINT>((int) printType - 1);
+            printType = static_cast<PRINT>((int)printType - 1);
         return;
     }
     if (node->lex == "-" && node->type == TOKEN_TYPE::OPERATOR && !node->r)
@@ -546,8 +588,10 @@ void Translator::asmExpr(Node *node) {
     }
 }
 
-void Translator::asmCond(Node* node) {
-    if (!node) return;
+void Translator::asmCond(Node *node)
+{
+    if (!node)
+        return;
 
     int compares = rand() % (int)1e5;
     if (node->type == TOKEN_TYPE::NUMBER)
@@ -594,23 +638,26 @@ void Translator::asmCond(Node* node) {
     label(end);
 }
 
-void Translator::asmIf(Node *node) {
+void Translator::asmIf(Node *node)
+{
     int unqLabel = rand() % (int)1e5;
     static string end = "IFEND_" + to_string(unqLabel);
-    size_t elseLabels {0};
+    size_t elseLabels{0};
     _asmIf(node, unqLabel, elseLabels);
     label(end);
 }
 
-void Translator::_asmIf(Node *node, int unqLabel, size_t elseLabels) {
-    if (!node) return;
+void Translator::_asmIf(Node *node, int unqLabel, size_t elseLabels)
+{
+    if (!node)
+        return;
 
-    Node* ifStmt = node->l;
+    Node *ifStmt = node->l;
     if (node->lex == "else")
     {
         if (ifStmt->l)
         {
-            Node* cond = ifStmt->l;
+            Node *cond = ifStmt->l;
             if (cond->r)
             {
                 _asmBlock(cond->r);
@@ -618,7 +665,8 @@ void Translator::_asmIf(Node *node, int unqLabel, size_t elseLabels) {
             if (cond->l)
             {
                 asmExpr(cond->l);
-            } else
+            }
+            else
             {
                 push("1");
             }
@@ -628,7 +676,8 @@ void Translator::_asmIf(Node *node, int unqLabel, size_t elseLabels) {
         je("IFELSE_" + to_string(unqLabel) + to_string(elseLabels));
         _asmBlock(ifStmt->r);
         jmp("IFEND_" + to_string(unqLabel));
-    } else
+    }
+    else
     {
         _asmBlock(node);
         return;
@@ -638,8 +687,10 @@ void Translator::_asmIf(Node *node, int unqLabel, size_t elseLabels) {
     _asmIf(node->r, unqLabel, elseLabels);
 }
 
-void Translator::asmPrint(Node* node) {
-    if (!node) return;
+void Translator::asmPrint(Node *node)
+{
+    if (!node)
+        return;
     if (node->lex == "expr_list")
     {
         asmPrint(node->l);
@@ -651,8 +702,10 @@ void Translator::asmPrint(Node* node) {
     raw(utility::tab + string("call print\n"));
 }
 
-void Translator::asmSqrt(Node *node) {
-    if (!node) return;
+void Translator::asmSqrt(Node *node)
+{
+    if (!node)
+        return;
     if (node->lex == "expr_list")
     {
         asmSqrt(node->l);
@@ -682,7 +735,8 @@ void Translator::pop(const string &str)
     asmCur->append(str);
     asmCur->append("\n");
 }
-void Translator::div(const string &str) {
+void Translator::div(const string &str)
+{
     asmCur->append(utility::tab);
     asmCur->append("idiv ");
     asmCur->append(str);
@@ -833,19 +887,23 @@ void Translator::fistp(const string &str)
     asmCur->append("\n");
 }
 
-void Translator::setPtr(Translator::asmPlace place) {
+void Translator::setPtr(Translator::asmPlace place)
+{
     if (place == DATA)
     {
         asmCur = &asmData;
-    } else if (place == PREMAIN)
+    }
+    else if (place == PREMAIN)
     {
         asmCur = &asmPreMain;
-    } else
+    }
+    else
     {
         asmCur = &asmMain;
     }
 }
 
-void Translator::raw(const string& str) {
+void Translator::raw(const string &str)
+{
     asmCur->append(str);
 }

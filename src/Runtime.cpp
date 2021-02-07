@@ -4,26 +4,30 @@
 
 #include "../include/Runtime.hpp"
 
-utility::hashT<var> RuntimeVars::vars {utility::HASH_TABLE_VARS};
-utility::hashT<string*> RuntimeVars::lits {utility::HASH_TABLE_LITS};
-utility::hashT<std::size_t> RuntimeVars::packages {utility::HASH_TABLE_PKG};
+utility::hashT<var> RuntimeVars::vars{utility::HASH_TABLE_VARS};
+utility::hashT<string *> RuntimeVars::lits{utility::HASH_TABLE_LITS};
+utility::hashT<std::size_t> RuntimeVars::packages{utility::HASH_TABLE_PKG};
 
-bool RuntimeVars::searchVar(string &name, std::size_t context, std::size_t id) {
-    auto* p = vars.search(name.c_str());
+bool RuntimeVars::searchVar(string &name, std::size_t context, std::size_t id)
+{
+    auto *p = vars.search(name.c_str());
     bool result = p;
-    if (result) {
+    if (result)
+    {
         result &= p->level <= context;
         result &= p->id != id;
     }
     return result;
 }
 
-bool RuntimeVars::searchPackage(string &str) {
+bool RuntimeVars::searchPackage(string &str)
+{
     return packages.search(str.c_str());
 }
 
-void RuntimeVars::appendVar(string &name, string &type, std::size_t context, std::size_t id) {
-    auto* p = vars.search(name.c_str());
+void RuntimeVars::appendVar(string &name, string &type, std::size_t context, std::size_t id)
+{
+    auto *p = vars.search(name.c_str());
     if (p)
         if (p->level == context && p->id == id)
             throw logic_error("Variable " + name + " is already declared");
@@ -31,18 +35,21 @@ void RuntimeVars::appendVar(string &name, string &type, std::size_t context, std
     varCount++;
 }
 
-void RuntimeVars::appendPackage(string &str) {
+void RuntimeVars::appendPackage(string &str)
+{
     if (packages.search(str.c_str()))
         throw logic_error("Package " + str + " is already imported");
     packages[str.c_str()];
 }
 
-void RuntimeVars::appendLit(string &str) {
+void RuntimeVars::appendLit(string &str)
+{
     if (!lits.search(str.c_str()))
         lits[str.c_str()] = &str;
 }
 
-void RuntimeVars::print() {
+void RuntimeVars::print()
+{
     for (int i = 0; i < packages.size; i++)
     {
         if (!packages.table[i].isEmpty)
@@ -60,13 +67,13 @@ void RuntimeVars::print() {
     }
 }
 
-void RuntimeVars::log(const string& path) {
-    logOut.open("RUN_" + path + ".txt");
-    if (!logOut.is_open()) throw logic_error("Cannot write log file from RUN");
-    std::streambuf* coutbuf = std::cout.rdbuf();
+void RuntimeVars::log(const string &path)
+{
+    logOut.open("logs/" + path + "_runtime.txt");
+    if (!logOut.is_open())
+        throw logic_error("Cannot write log file from RUN");
+    std::streambuf *coutbuf = std::cout.rdbuf();
     std::cout.rdbuf(logOut.rdbuf());
     print();
     std::cout.rdbuf(coutbuf);
 }
-
-

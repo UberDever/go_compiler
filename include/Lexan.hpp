@@ -25,11 +25,9 @@ class Lexan
     static Token nullToken;
 
     string filePath;
+    ofstream logOut;
     STATE curState = STATE::DEFAULT;
     size_t curToken {0};
-
-    //size_t chainPtr{0};
-    //size_t backPtr{0};
 
     static void setupLexemes();
     static void pushToken (string& lex, TOKEN_TYPE type);
@@ -39,6 +37,7 @@ public:
     ~Lexan() = default;
     void split();
     static void print();
+    void log(const string &path);
 
     Token& token();
     Token& peek() const;

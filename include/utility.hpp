@@ -11,6 +11,7 @@
 #include <algorithm>
 #include <cstdarg>
 #include <stack>
+#include <regex>
 
 #ifndef GO_COMPILER_UTILITY_HPP
 #define GO_COMPILER_UTILITY_HPP
