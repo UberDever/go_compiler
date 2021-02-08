@@ -12,6 +12,7 @@ static auto asmVar = [](Node *node, RuntimeVars *run) { return node->lex + "_" +
 
 Translator::Translator(AST *_ast, string _path)
 {
+    randNum = rand();
     ast = _ast;
     path = std::move(_path);
     out.open(path + ".asm");
@@ -392,7 +393,7 @@ void Translator::_asmBlock(Node *node)
     }
     if (node->lex == "for" && node->type == TOKEN_TYPE::KEYWORD)
     {
-        int lab = rand() % (int)1e5;
+        int lab = randNum + unqLabelCount++;
         string start = "LOOPSTART_" + to_string(lab);
         string end = "LOOPEND_" + to_string(lab);
         string inc = "LOOPINC_" + to_string(lab);
@@ -512,7 +513,9 @@ void Translator::asmExpr(Node *node)
     }
     if (node->type == TOKEN_TYPE::NUMBER)
     {
-        push(node->lex);
+        std::replace(node->lex.begin(), node->lex.end(), '.', (char)(0)); // We support just ints, sorry :(
+        string lex(node->lex.c_str());
+        push(lex);
         if (printType == STR || printType == STR_NL)
             printType = static_cast<PRINT>((int)printType - 1);
         return;
@@ -593,7 +596,7 @@ void Translator::asmCond(Node *node)
     if (!node)
         return;
 
-    int compares = rand() % (int)1e5;
+    int compares = randNum + unqLabelCount++;
     if (node->type == TOKEN_TYPE::NUMBER)
     {
         push(node->lex);
@@ -640,8 +643,8 @@ void Translator::asmCond(Node *node)
 
 void Translator::asmIf(Node *node)
 {
-    int unqLabel = rand() % (int)1e5;
-    static string end = "IFEND_" + to_string(unqLabel);
+    int unqLabel = randNum + unqLabelCount++;
+    string end = "IFEND_" + to_string(unqLabel);
     size_t elseLabels{0};
     _asmIf(node, unqLabel, elseLabels);
     label(end);

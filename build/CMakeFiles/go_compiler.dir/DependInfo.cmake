@@ -4,15 +4,15 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/uberdever/dev/4 sem/go_compiler/main.cpp" "/home/uberdever/dev/4 sem/go_compiler/build/CMakeFiles/go_compiler.dir/main.cpp.o"
-  "/home/uberdever/dev/4 sem/go_compiler/src/AST.cpp" "/home/uberdever/dev/4 sem/go_compiler/build/CMakeFiles/go_compiler.dir/src/AST.cpp.o"
-  "/home/uberdever/dev/4 sem/go_compiler/src/Compiler.cpp" "/home/uberdever/dev/4 sem/go_compiler/build/CMakeFiles/go_compiler.dir/src/Compiler.cpp.o"
-  "/home/uberdever/dev/4 sem/go_compiler/src/Lexan.cpp" "/home/uberdever/dev/4 sem/go_compiler/build/CMakeFiles/go_compiler.dir/src/Lexan.cpp.o"
-  "/home/uberdever/dev/4 sem/go_compiler/src/Parser.cpp" "/home/uberdever/dev/4 sem/go_compiler/build/CMakeFiles/go_compiler.dir/src/Parser.cpp.o"
-  "/home/uberdever/dev/4 sem/go_compiler/src/Runtime.cpp" "/home/uberdever/dev/4 sem/go_compiler/build/CMakeFiles/go_compiler.dir/src/Runtime.cpp.o"
-  "/home/uberdever/dev/4 sem/go_compiler/src/Token.cpp" "/home/uberdever/dev/4 sem/go_compiler/build/CMakeFiles/go_compiler.dir/src/Token.cpp.o"
-  "/home/uberdever/dev/4 sem/go_compiler/src/Translator.cpp" "/home/uberdever/dev/4 sem/go_compiler/build/CMakeFiles/go_compiler.dir/src/Translator.cpp.o"
-  "/home/uberdever/dev/4 sem/go_compiler/src/utility.cpp" "/home/uberdever/dev/4 sem/go_compiler/build/CMakeFiles/go_compiler.dir/src/utility.cpp.o"
+  "C:/dev/go/go_compiler/main.cpp" "C:/dev/go/go_compiler/build/CMakeFiles/go_compiler.dir/main.cpp.obj"
+  "C:/dev/go/go_compiler/src/AST.cpp" "C:/dev/go/go_compiler/build/CMakeFiles/go_compiler.dir/src/AST.cpp.obj"
+  "C:/dev/go/go_compiler/src/Compiler.cpp" "C:/dev/go/go_compiler/build/CMakeFiles/go_compiler.dir/src/Compiler.cpp.obj"
+  "C:/dev/go/go_compiler/src/Lexan.cpp" "C:/dev/go/go_compiler/build/CMakeFiles/go_compiler.dir/src/Lexan.cpp.obj"
+  "C:/dev/go/go_compiler/src/Parser.cpp" "C:/dev/go/go_compiler/build/CMakeFiles/go_compiler.dir/src/Parser.cpp.obj"
+  "C:/dev/go/go_compiler/src/Runtime.cpp" "C:/dev/go/go_compiler/build/CMakeFiles/go_compiler.dir/src/Runtime.cpp.obj"
+  "C:/dev/go/go_compiler/src/Token.cpp" "C:/dev/go/go_compiler/build/CMakeFiles/go_compiler.dir/src/Token.cpp.obj"
+  "C:/dev/go/go_compiler/src/Translator.cpp" "C:/dev/go/go_compiler/build/CMakeFiles/go_compiler.dir/src/Translator.cpp.obj"
+  "C:/dev/go/go_compiler/src/utility.cpp" "C:/dev/go/go_compiler/build/CMakeFiles/go_compiler.dir/src/utility.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

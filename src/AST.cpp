@@ -41,7 +41,11 @@ void AST::printRecursive(Node *nd, int tabs)
 
 void AST::log(const string &path)
 {
-    logOut.open("logs/" + path + "_ast.txt");
+    auto foundPos = path.find("../", 0);
+    if (foundPos != string::npos)
+        logOut.open("../logs/" + path.substr(foundPos + 1) + "_ast.txt");
+    else
+        logOut.open("logs/" + path + "_ast.txt");
     if (!logOut.is_open())
         throw logic_error("Cannot write log file from AST");
     std::streambuf *coutbuf = std::cout.rdbuf();

@@ -6,33 +6,25 @@
 
 #IncludeRegexTransform: 
 
-/home/uberdever/dev/4 sem/go_compiler/include/AST.hpp
+C:/dev/go/go_compiler/include/AST.hpp
 utility.hpp
-/home/uberdever/dev/4 sem/go_compiler/include/utility.hpp
+C:/dev/go/go_compiler/include/utility.hpp
 Token.hpp
-/home/uberdever/dev/4 sem/go_compiler/include/Token.hpp
+C:/dev/go/go_compiler/include/Token.hpp
 
-/home/uberdever/dev/4 sem/go_compiler/include/Lexan.hpp
+C:/dev/go/go_compiler/include/Lexan.hpp
 Token.hpp
-/home/uberdever/dev/4 sem/go_compiler/include/Token.hpp
+C:/dev/go/go_compiler/include/Token.hpp
 
-/home/uberdever/dev/4 sem/go_compiler/include/Parser.hpp
-Lexan.hpp
-/home/uberdever/dev/4 sem/go_compiler/include/Lexan.hpp
-AST.hpp
-/home/uberdever/dev/4 sem/go_compiler/include/AST.hpp
-Runtime.hpp
-/home/uberdever/dev/4 sem/go_compiler/include/Runtime.hpp
-
-/home/uberdever/dev/4 sem/go_compiler/include/Runtime.hpp
+C:/dev/go/go_compiler/include/Runtime.hpp
 utility.hpp
-/home/uberdever/dev/4 sem/go_compiler/include/utility.hpp
+C:/dev/go/go_compiler/include/utility.hpp
 
-/home/uberdever/dev/4 sem/go_compiler/include/Token.hpp
+C:/dev/go/go_compiler/include/Token.hpp
 utility.hpp
-/home/uberdever/dev/4 sem/go_compiler/include/utility.hpp
+C:/dev/go/go_compiler/include/utility.hpp
 
-/home/uberdever/dev/4 sem/go_compiler/include/utility.hpp
+C:/dev/go/go_compiler/include/utility.hpp
 iostream
 -
 cstring
@@ -54,7 +46,15 @@ stack
 regex
 -
 
-/home/uberdever/dev/4 sem/go_compiler/src/Parser.cpp
-../include/Parser.hpp
-/home/uberdever/dev/4 sem/go_compiler/include/Parser.hpp
+C:/dev/go/go_compiler/src/AST.cpp
+../include/AST.hpp
+C:/dev/go/go_compiler/include/AST.hpp
+
+C:/dev/go/go_compiler/src/Lexan.cpp
+../include/Lexan.hpp
+C:/dev/go/go_compiler/include/Lexan.hpp
+
+C:/dev/go/go_compiler/src/Runtime.cpp
+../include/Runtime.hpp
+C:/dev/go/go_compiler/include/Runtime.hpp
 

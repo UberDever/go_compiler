@@ -1,47 +1,47 @@
 [
 {
-  "directory": "/home/uberdever/dev/4 sem/go_compiler/build",
-  "command": "/usr/bin/g++-7    -g   -std=gnu++11 -o CMakeFiles/go_compiler.dir/main.cpp.o -c \"/home/uberdever/dev/4 sem/go_compiler/main.cpp\"",
-  "file": "/home/uberdever/dev/4 sem/go_compiler/main.cpp"
+  "directory": "C:/dev/go/go_compiler/build",
+  "command": "C:\\PROGRA~1\\MINGW-~1\\X86_64~1.0-P\\mingw64\\bin\\X86_64~2.EXE   -g -std=gnu++11 -o CMakeFiles\\go_compiler.dir\\main.cpp.obj -c C:\\dev\\go\\go_compiler\\main.cpp",
+  "file": "C:/dev/go/go_compiler/main.cpp"
 },
 {
-  "directory": "/home/uberdever/dev/4 sem/go_compiler/build",
-  "command": "/usr/bin/g++-7    -g   -std=gnu++11 -o CMakeFiles/go_compiler.dir/src/Compiler.cpp.o -c \"/home/uberdever/dev/4 sem/go_compiler/src/Compiler.cpp\"",
-  "file": "/home/uberdever/dev/4 sem/go_compiler/src/Compiler.cpp"
+  "directory": "C:/dev/go/go_compiler/build",
+  "command": "C:\\PROGRA~1\\MINGW-~1\\X86_64~1.0-P\\mingw64\\bin\\X86_64~2.EXE   -g -std=gnu++11 -o CMakeFiles\\go_compiler.dir\\src\\Compiler.cpp.obj -c C:\\dev\\go\\go_compiler\\src\\Compiler.cpp",
+  "file": "C:/dev/go/go_compiler/src/Compiler.cpp"
 },
 {
-  "directory": "/home/uberdever/dev/4 sem/go_compiler/build",
-  "command": "/usr/bin/g++-7    -g   -std=gnu++11 -o CMakeFiles/go_compiler.dir/src/Token.cpp.o -c \"/home/uberdever/dev/4 sem/go_compiler/src/Token.cpp\"",
-  "file": "/home/uberdever/dev/4 sem/go_compiler/src/Token.cpp"
+  "directory": "C:/dev/go/go_compiler/build",
+  "command": "C:\\PROGRA~1\\MINGW-~1\\X86_64~1.0-P\\mingw64\\bin\\X86_64~2.EXE   -g -std=gnu++11 -o CMakeFiles\\go_compiler.dir\\src\\Token.cpp.obj -c C:\\dev\\go\\go_compiler\\src\\Token.cpp",
+  "file": "C:/dev/go/go_compiler/src/Token.cpp"
 },
 {
-  "directory": "/home/uberdever/dev/4 sem/go_compiler/build",
-  "command": "/usr/bin/g++-7    -g   -std=gnu++11 -o CMakeFiles/go_compiler.dir/src/Lexan.cpp.o -c \"/home/uberdever/dev/4 sem/go_compiler/src/Lexan.cpp\"",
-  "file": "/home/uberdever/dev/4 sem/go_compiler/src/Lexan.cpp"
+  "directory": "C:/dev/go/go_compiler/build",
+  "command": "C:\\PROGRA~1\\MINGW-~1\\X86_64~1.0-P\\mingw64\\bin\\X86_64~2.EXE   -g -std=gnu++11 -o CMakeFiles\\go_compiler.dir\\src\\Lexan.cpp.obj -c C:\\dev\\go\\go_compiler\\src\\Lexan.cpp",
+  "file": "C:/dev/go/go_compiler/src/Lexan.cpp"
 },
 {
-  "directory": "/home/uberdever/dev/4 sem/go_compiler/build",
-  "command": "/usr/bin/g++-7    -g   -std=gnu++11 -o CMakeFiles/go_compiler.dir/src/Parser.cpp.o -c \"/home/uberdever/dev/4 sem/go_compiler/src/Parser.cpp\"",
-  "file": "/home/uberdever/dev/4 sem/go_compiler/src/Parser.cpp"
+  "directory": "C:/dev/go/go_compiler/build",
+  "command": "C:\\PROGRA~1\\MINGW-~1\\X86_64~1.0-P\\mingw64\\bin\\X86_64~2.EXE   -g -std=gnu++11 -o CMakeFiles\\go_compiler.dir\\src\\Parser.cpp.obj -c C:\\dev\\go\\go_compiler\\src\\Parser.cpp",
+  "file": "C:/dev/go/go_compiler/src/Parser.cpp"
 },
 {
-  "directory": "/home/uberdever/dev/4 sem/go_compiler/build",
-  "command": "/usr/bin/g++-7    -g   -std=gnu++11 -o CMakeFiles/go_compiler.dir/src/utility.cpp.o -c \"/home/uberdever/dev/4 sem/go_compiler/src/utility.cpp\"",
-  "file": "/home/uberdever/dev/4 sem/go_compiler/src/utility.cpp"
+  "directory": "C:/dev/go/go_compiler/build",
+  "command": "C:\\PROGRA~1\\MINGW-~1\\X86_64~1.0-P\\mingw64\\bin\\X86_64~2.EXE   -g -std=gnu++11 -o CMakeFiles\\go_compiler.dir\\src\\utility.cpp.obj -c C:\\dev\\go\\go_compiler\\src\\utility.cpp",
+  "file": "C:/dev/go/go_compiler/src/utility.cpp"
 },
 {
-  "directory": "/home/uberdever/dev/4 sem/go_compiler/build",
-  "command": "/usr/bin/g++-7    -g   -std=gnu++11 -o CMakeFiles/go_compiler.dir/src/AST.cpp.o -c \"/home/uberdever/dev/4 sem/go_compiler/src/AST.cpp\"",
-  "file": "/home/uberdever/dev/4 sem/go_compiler/src/AST.cpp"
+  "directory": "C:/dev/go/go_compiler/build",
+  "command": "C:\\PROGRA~1\\MINGW-~1\\X86_64~1.0-P\\mingw64\\bin\\X86_64~2.EXE   -g -std=gnu++11 -o CMakeFiles\\go_compiler.dir\\src\\AST.cpp.obj -c C:\\dev\\go\\go_compiler\\src\\AST.cpp",
+  "file": "C:/dev/go/go_compiler/src/AST.cpp"
 },
 {
-  "directory": "/home/uberdever/dev/4 sem/go_compiler/build",
-  "command": "/usr/bin/g++-7    -g   -std=gnu++11 -o CMakeFiles/go_compiler.dir/src/Runtime.cpp.o -c \"/home/uberdever/dev/4 sem/go_compiler/src/Runtime.cpp\"",
-  "file": "/home/uberdever/dev/4 sem/go_compiler/src/Runtime.cpp"
+  "directory": "C:/dev/go/go_compiler/build",
+  "command": "C:\\PROGRA~1\\MINGW-~1\\X86_64~1.0-P\\mingw64\\bin\\X86_64~2.EXE   -g -std=gnu++11 -o CMakeFiles\\go_compiler.dir\\src\\Runtime.cpp.obj -c C:\\dev\\go\\go_compiler\\src\\Runtime.cpp",
+  "file": "C:/dev/go/go_compiler/src/Runtime.cpp"
 },
 {
-  "directory": "/home/uberdever/dev/4 sem/go_compiler/build",
-  "command": "/usr/bin/g++-7    -g   -std=gnu++11 -o CMakeFiles/go_compiler.dir/src/Translator.cpp.o -c \"/home/uberdever/dev/4 sem/go_compiler/src/Translator.cpp\"",
-  "file": "/home/uberdever/dev/4 sem/go_compiler/src/Translator.cpp"
+  "directory": "C:/dev/go/go_compiler/build",
+  "command": "C:\\PROGRA~1\\MINGW-~1\\X86_64~1.0-P\\mingw64\\bin\\X86_64~2.EXE   -g -std=gnu++11 -o CMakeFiles\\go_compiler.dir\\src\\Translator.cpp.obj -c C:\\dev\\go\\go_compiler\\src\\Translator.cpp",
+  "file": "C:/dev/go/go_compiler/src/Translator.cpp"
 }
 ]

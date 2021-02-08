@@ -27,6 +27,8 @@ class Translator
     int stackBytes {8};
     PRINT printType {INT};
     std::stack<int> forLabels;
+    int unqLabelCount;
+    int randNum;
 
 public:
     Translator(AST*, string);

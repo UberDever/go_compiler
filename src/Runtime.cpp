@@ -69,7 +69,11 @@ void RuntimeVars::print()
 
 void RuntimeVars::log(const string &path)
 {
-    logOut.open("logs/" + path + "_runtime.txt");
+    auto foundPos = path.find("../", 0);
+    if (foundPos != string::npos)
+        logOut.open("../logs/" + path.substr(foundPos + 1) + "_runtime.txt");
+    else
+        logOut.open("logs/" + path + "_runtime.txt");
     if (!logOut.is_open())
         throw logic_error("Cannot write log file from RUN");
     std::streambuf *coutbuf = std::cout.rdbuf();
