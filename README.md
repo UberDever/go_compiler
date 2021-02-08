@@ -109,8 +109,8 @@ Thus, compiler supports:
 -    |     ||    <     [    ]    &^
 *    ^     <-    >     {    }    :
 /    <<    ++    =     :=   ,    ;
-%    >>    --    !     ...  .
->	   >=    <	   <=	   !=
+%    >>    --    !     ...  .	 !=
+>    >=    <	 <=	 
 ```
 Although, not all implemented semantically
 * Keywords
